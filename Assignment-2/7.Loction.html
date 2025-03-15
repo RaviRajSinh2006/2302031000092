@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HISTMAP - Historical Locations</title>
+    <style>
+        /* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family:
+      Inter,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    background-color: rgba(255, 255, 255, 1);
+    overflow-x: hidden;
+  }
+  
+  .location-page {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  /* Header Styles */
+  .main-header {
+    background-color: rgba(0, 0, 0, 0.98);
+    display: flex;
+    width: 100%;
+    padding: 9px 16px 9px 35px;
+    align-items: center;
+    gap: 20px;
+    font-family:
+      Inter,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 700;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  @media (max-width: 991px) {
+    .main-header {
+      max-width: 100%;
+      padding-left: 20px;
+    }
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 48px;
+    white-space: nowrap;
+  }
+  
+  @media (max-width: 991px) {
+    .logo-container {
+      font-size: 40px;
+      white-space: initial;
+    }
+  }
+  
+  .logo-image {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 90px;
+    flex-shrink: 0;
+  }
+  
+  .logo-text {
+    margin: auto 0;
+    font-size: inherit;
+    flex-basis: auto;
+  }
+  
+  @media (max-width: 991px) {
+    .logo-text {
+      font-size: 40px;
+    }
+  }
+  
+  .main-nav {
+    display: flex;
+    margin: auto 0;
+    align-items: center;
+    gap: 14px;
+    font-size: 36px;
+    text-align: center;
+  }
+  
+  @media (max-width: 991px) {
+    .main-nav {
+      max-width: 100%;
+    }
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+    margin: auto 0;
+    flex-basis: auto;
+  }
+  
+  .nav-link:first-child {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  .sign-up-btn {
+    border-radius: 90px;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 6px 15px;
+    color: rgba(0, 0, 0, 1);
+    white-space: nowrap;
+  }
+  
+  @media (max-width: 991px) {
+    .sign-up-btn {
+      white-space: initial;
+    }
+  }
+  
+  /* Hero Section Styles */
+  .hero-section {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 663px;
+    width: 100%;
+    padding: 7px 80px 265px 14px;
+    align-items: flex-start;
+    font-family:
+      Inter,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    font-size: 36px;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 700;
+  }
+  
+  @media (max-width: 991px) {
+    .hero-section {
+      max-width: 100%;
+      padding-right: 20px;
+      padding-bottom: 100px;
+    }
+  }
+  
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+  }
+  
+  .location-grid {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  .location-row {
+    display: flex;
+    width: 100%;
+    max-width: 1511px;
+    align-items: stretch;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  @media (max-width: 991px) {
+    .location-row {
+      max-width: 100%;
+    }
+  }
+  
+  .location-group {
+    align-self: flex-start;
+    display: flex;
+    margin-top: 8px;
+    align-items: stretch;
+    gap: 94px;
+    white-space: nowrap;
+  }
+  
+  @media (max-width: 991px) {
+    .location-group {
+      max-width: 100%;
+      white-space: initial;
+      gap: 40px;
+    }
+  }
+  
+  .location-bottom-row {
+    position: relative;
+    display: flex;
+    margin-top: 277px;
+    margin-bottom: -53px;
+    width: 100%;
+    max-width: 1308px;
+    align-items: flex-start;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  
+  @media (max-width: 991px) {
+    .location-bottom-row {
+      max-width: 100%;
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
+  }
+  
+  .location-name {
+    font-size: 36px;
+    font-weight: 700;
+  }
+  
+  .location-bottom-row .location-name {
+    margin-top: 18px;
+  }
+  
+  /* Info Section Styles */
+  .info-section {
+    background-color: rgba(38, 37, 37, 1);
+    display: flex;
+    width: 100%;
+    padding: 30px 77px;
+    align-items: stretch;
+    gap: 100px;
+  }
+  
+  @media (max-width: 991px) {
+    .info-section {
+      max-width: 100%;
+      padding: 30px 20px;
+      gap: 40px;
+    }
+  }
+  
+  .site-links {
+    color: rgba(255, 255, 255, 1);
+    font-size: 20px;
+    font-family:
+      Inter,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    font-weight: 400;
+    align-self: flex-start;
+  }
+  
+  .footer-logo {
+    display: flex;
+    margin: auto 0;
+    align-items: center;
+    gap: 16px;
+    font-family:
+      Inter,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    font-size: 48px;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  
+  @media (max-width: 991px) {
+    .footer-logo {
+      font-size: 40px;
+      white-space: initial;
+    }
+  }
+  
+  .footer-content {
+    margin-top: 4px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+  }
+  
+  @media (max-width: 991px) {
+    .footer-content {
+      max-width: 100%;
+    }
+  }
+  
+  .footer-columns {
+    gap: 20px;
+    display: flex;
+  }
+  
+  @media (max-width: 991px) {
+    .footer-columns {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0px;
+    }
+  }
+  
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    line-height: normal;
+    width: 20%;
+    margin-left: 0px;
+  }
+  
+  @media (max-width: 991px) {
+    .footer-column {
+      width: 100%;
+    }
+  }
+  
+  .footer-links {
+    color: rgba(255, 255, 255, 1);
+    font-size: 20px;
+    font-family:
+      Inter,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    font-weight: 400;
+  }
+  
+  @media (max-width: 991px) {
+    .footer-links {
+      margin-top: 40px;
+    }
+  }
+  
+  .contact-column {
+    width: 80%;
+    margin-left: 20px;
+  }
+  
+  @media (max-width: 991px) {
+    .contact-column {
+      width: 100%;
+    }
+  }
+  
+  .contact-info {
+    color: rgba(255, 255, 255, 1);
+    font-size: 24px;
+    font-family:
+      Inter,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    font-weight: 400;
+    margin: auto 0;
+    align-self: stretch;
+  }
+  
+  @media (max-width: 991px) {
+    .contact-info {
+      margin-top: 40px;
+    }
+  }
+  
+  /* Footer Styles */
+  .main-footer {
+    background-color: rgba(0, 0, 0, 0.98);
+    display: flex;
+    width: 100%;
+    padding: 8px 29px 8px 14px;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  @media (max-width: 991px) {
+    .main-footer {
+      max-width: 100%;
+      padding-right: 20px;
+    }
+  }
+  
+  .copyright {
+    color: rgba(255, 255, 255, 1);
+    font-size: 24px;
+    font-family:
+      Inter,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    font-weight: 700;
+    margin: auto 0;
+  }
+  
+  .footer-logo-small {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-family:
+      Inter,
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    font-size: 32px;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  
+  @media (max-width: 991px) {
+    .footer-logo-small {
+      white-space: initial;
+    }
+  }
+  
+  .logo-small {
+    aspect-ratio: 1.04;
+    object-fit: contain;
+    object-position: center;
+    width: 52px;
+    flex-shrink: 0;
+  }
+  
+  .logo-text-small {
+    margin: auto 0;
+    font-size: inherit;
+    flex-basis: auto;
+  }
+  
+  .social-icons {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+  }
+  
+  .social-icon {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 50px;
+    flex-shrink: 0;
+  }
+  
+    </style>
+  </head>
+  <body>
+    <div class="location-page">
+      <header class="main-header">
+        <div class="logo-container">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/fe4235f601c9856771a7a587474903558f7dd4f45604c34adfc8eec1f04c32e9?placeholderIfAbsent=true&apiKey=3bb94221996c47f6be7b5ca60455aeed"
+            class="logo-image"
+            alt="HISTMAP Logo"
+          />
+          <h1 class="logo-text">HISTMAP</h1>
+        </div>
+        <nav class="main-nav">
+          <a href="map.html" class="nav-link">Map</a>
+          <a href="servi.html" class="nav-link">Services</a>
+          <a href="loction.html" class="nav-link">Location</a>
+          <a href="about.html" class="nav-link">About Us</a>
+          <a href="sing.html" class="nav-link sign-up-btn">Sign-Up</a>
+        </nav>
+      </header>
+
+      <main class="hero-section">
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/53f92a33a203a969475109764f9a71c83a8ac6c7c1d2b154a5262adce2d2326d?placeholderIfAbsent=true&apiKey=3bb94221996c47f6be7b5ca60455aeed"
+          class="hero-image"
+          alt="Historical locations background"
+        />
+        <div class="location-grid">
+          <div class="location-row">
+            <h2 class="location-name">Taj Mahal</h2>
+            <h2 class="location-name">Amer Fort</h2>
+            <div class="location-group">
+              <h2 class="location-name">KutubMinar</h2>
+              <h2 class="location-name">Temple</h2>
+            </div>
+          </div>
+          <div class="location-bottom-row">
+            <h2 class="location-name">Hampi</h2>
+            <h2 class="location-name">India Gate</h2>
+            <h2 class="location-name">Lal killa</h2>
+          </div>
+        </div>
+      </main>
+
+      <section class="info-section">
+        <div class="site-links">
+          Home
+          <br />
+          <br />
+          Projects
+          <br />
+          <br />
+          Blog
+          <br />
+          <br />
+          About Us
+          <br />
+          <br />
+          Services
+        </div>
+        <div class="footer-logo">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/fe4235f601c9856771a7a587474903558f7dd4f45604c34adfc8eec1f04c32e9?placeholderIfAbsent=true&apiKey=3bb94221996c47f6be7b5ca60455aeed"
+            class="logo-image"
+            alt="HISTMAP Logo"
+          />
+          <h2 class="logo-text">HISTMAP</h2>
+        </div>
+        <div class="footer-content" space="102">
+          <div class="footer-columns">
+            <div class="footer-column">
+              <div class="footer-links">
+                Location
+                <br />
+                <br />
+                Map
+                <br />
+                <br />
+                Services
+                <br />
+                <br />
+                Histmap
+                <br />
+                <br />
+                Places
+              </div>
+            </div>
+            <div class="footer-column contact-column">
+              <div class="contact-info">
+                Email: contact@histmap.com
+                <br />
+                <br />
+                Phone: +91 123456-7890
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="main-footer">
+        <p class="copyright">©Histmap|All Rights Reserved</p>
+        <div class="footer-logo-small">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/a82006e1f5ade9c3dfed4faf5a2825c4704446ec905a629267567a958d453411?placeholderIfAbsent=true&apiKey=3bb94221996c47f6be7b5ca60455aeed"
+            class="logo-small"
+            alt="HISTMAP Logo"
+          />
+          <h3 class="logo-text-small">HISTMAP</h3>
+        </div>
+        <div class="social-icons">
+          <a href="#" class="social-link"
+            ><img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/bc3db2b87ce02ed681aa143a936fce42b66003d83579ac716c27dfea263ffe1b?placeholderIfAbsent=true&apiKey=3bb94221996c47f6be7b5ca60455aeed"
+              class="social-icon"
+              alt="Social Media"
+          /></a>
+          <a href="#" class="social-link"
+            ><img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/df8ac0016184220cf828127ef8d6fe39658a63f19e99dd6df6280c4fc1dd78e8?placeholderIfAbsent=true&apiKey=3bb94221996c47f6be7b5ca60455aeed"
+              class="social-icon"
+              alt="Social Media"
+          /></a>
+          <a href="#" class="social-link"
+            ><img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/58b9a59a91dccbde8011a144d39c242499c5c4e042f81cc55945a641f017c010?placeholderIfAbsent=true&apiKey=3bb94221996c47f6be7b5ca60455aeed"
+              class="social-icon"
+              alt="Social Media"
+          /></a>
+          <a href="#" class="social-link"
+            ><img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/d9d5fc2df03e62cbca335365f6362013a9d2f63ea3faa1f65ef1a724d83215a5?placeholderIfAbsent=true&apiKey=3bb94221996c47f6be7b5ca60455aeed"
+              class="social-icon"
+              alt="Social Media"
+          /></a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

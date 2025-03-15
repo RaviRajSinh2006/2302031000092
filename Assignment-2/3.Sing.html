@@ -1,0 +1,759 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HISTMAP - Sign Up</title>
+    <style>.sign-up {
+        background-color: rgba(255, 255, 255, 1);
+        overflow: hidden;
+      }
+      
+      /* Header Styles */
+      .main-header {
+        background-color: rgba(0, 0, 0, 0.98);
+        display: flex;
+        width: 100%;
+        padding: 9px 16px 9px 35px;
+        align-items: stretch;
+        gap: 20px;
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        color: rgba(255, 255, 255, 1);
+        font-weight: 700;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      
+      @media (max-width: 991px) {
+        .main-header {
+          max-width: 100%;
+          padding-left: 20px;
+        }
+      }
+      
+      .logo-container {
+        display: flex;
+        align-items: stretch;
+        gap: 16px;
+        font-size: 48px;
+        white-space: nowrap;
+      }
+      
+      @media (max-width: 991px) {
+        .logo-container {
+          font-size: 40px;
+          white-space: initial;
+        }
+      }
+      
+      .logo-image {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 90px;
+        flex-shrink: 0;
+      }
+      
+      .logo-text {
+        margin: auto 0;
+        flex-basis: auto;
+        font-size: inherit;
+        font-weight: inherit;
+      }
+      
+      @media (max-width: 991px) {
+        .logo-text {
+          font-size: 40px;
+        }
+      }
+      
+      .main-nav {
+        display: flex;
+        margin: auto 0;
+        align-items: center;
+        gap: 14px;
+        font-size: 36px;
+        text-align: center;
+      }
+      
+      @media (max-width: 991px) {
+        .main-nav {
+          max-width: 100%;
+        }
+      }
+      
+      .nav-link {
+        align-self: stretch;
+        margin: auto 0;
+        flex-basis: auto;
+        color: inherit;
+        text-decoration: none;
+      }
+      
+      .nav-link:first-child {
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      }
+      
+      .signup-button {
+        border-radius: 90px;
+        background-color: rgba(255, 255, 255, 1);
+        align-self: stretch;
+        padding: 6px 15px;
+        color: rgba(0, 0, 0, 1);
+        white-space: nowrap;
+      }
+      
+      @media (max-width: 991px) {
+        .signup-button {
+          white-space: initial;
+        }
+      }
+      
+      /* Main Signup Section */
+      .signup-section {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        min-height: 663px;
+        width: 100%;
+        padding: 190px 80px 95px;
+        align-items: center;
+      }
+      
+      @media (max-width: 991px) {
+        .signup-section {
+          max-width: 100%;
+          padding: 100px 20px;
+        }
+      }
+      
+      .background-image {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      
+      .signup-container {
+        position: relative;
+        display: flex;
+        width: 100%;
+        max-width: 1395px;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+      
+      @media (max-width: 991px) {
+        .signup-container {
+          max-width: 100%;
+        }
+      }
+      
+      .form-group {
+        display: flex;
+        align-items: stretch;
+        gap: 28px;
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 36px;
+        color: rgba(255, 255, 255, 1);
+        font-weight: 700;
+        white-space: nowrap;
+        text-align: center;
+        flex-wrap: wrap;
+      }
+      
+      @media (max-width: 991px) {
+        .form-group {
+          white-space: initial;
+        }
+      }
+      
+      .form-label {
+        margin:  0;
+        flex-grow: 1;
+        font-size: inherit;
+        font-weight: inherit;
+      }
+      
+      .form-input {
+        border-radius: 90px;
+        background-color: rgba(255, 255, 255, 1);
+        display: flex;
+        width: 600px;
+        flex-shrink: 0;
+        max-width: 100%;
+        height: 66px;
+        border: none;
+      }
+      
+      .form-content {
+        align-self: stretch;
+        margin-top: 33px;
+        width: 100%;
+      }
+      
+      @media (max-width: 991px) {
+        .form-content {
+          max-width: 100%;
+        }
+      }
+      
+      .form-title-column {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        line-height: normal;
+        width: 34%;
+        margin-left: 0px;
+      }
+      
+      @media (max-width: 991px) {
+        .form-title-column {
+          width: 100%;
+        }
+      }
+      
+      .signup-title {
+        color: rgba(255, 255, 255, 1);
+        font-size: 96px;
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-weight: 700;
+        text-align: center;
+        margin-top: -4px;
+        margin: 0;
+      }
+      
+      @media (max-width: 991px) {
+        .signup-title {
+          margin-top: 40px;
+          font-size: 40px;
+        }
+      }
+      
+      .form-fields-column {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        line-height: normal;
+        width: 66%;
+        margin-left: 20px;
+      }
+      
+      @media (max-width: 991px) {
+        .form-fields-column {
+          width: 100%;
+        }
+      }
+      
+      .form-fields-column .form-group {
+        margin-top: 44px;
+        flex-grow: 1;
+      }
+      
+      @media (max-width: 991px) {
+        .form-fields-column .form-group {
+          margin-top: 40px;
+        }
+      }
+      
+      .form-fields-column .form-label {
+        margin-left: -3px;
+      }
+      
+      .form-fields-column .form-input {
+        height: 67px;
+        margin-left: 200px;
+        margin-top: -2px;
+      }
+      
+      .form-content {
+        display: flex;
+      }
+      
+      @media (max-width: 991px) {
+        .form-content {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0px;
+        }
+      }
+      
+      .submit-button {
+        border-radius: 90px;
+        background-color: rgba(255, 255, 255, 1);
+        margin-top: 82px;
+        margin-right: 150px;
+        padding: 25px 27px;
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 48px;
+        color: rgba(0, 0, 0, 1);
+        font-weight: 700;
+        white-space: nowrap;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+      }
+      
+      @media (max-width: 991px) {
+        .submit-button {
+          font-size: 40px;
+          margin-right: 10px;
+          padding: 20px;
+          margin-top: 40px;
+          white-space: initial;
+        }
+      }
+      
+      /* Footer Styles */
+      .main-footer {
+        background-color: rgba(38, 37, 37, 1);
+        display: flex;
+        width: 100%;
+        padding: 30px 77px;
+        align-items: stretch;
+        gap: 40px 100px;
+        margin-left: 1px;
+      }
+      
+      @media (max-width: 991px) {
+        .main-footer {
+          max-width: 100%;
+          padding: 30px 20px;
+        }
+      }
+      
+      .footer-links {
+        color: rgba(255, 255, 255, 1);
+        font-size: 20px;
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-weight: 400;
+        align-self: start;
+        margin: 0;
+      }
+      
+      .footer-logo {
+        display: flex;
+        margin: auto 0;
+        align-items: stretch;
+        gap: 16px;
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 48px;
+        color: rgba(255, 255, 255, 1);
+        font-weight: 700;
+        white-space: nowrap;
+      }
+      
+      @media (max-width: 991px) {
+        .footer-logo {
+          font-size: 40px;
+          white-space: initial;
+        }
+      }
+      
+      .footer-logo-image {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 90px;
+        flex-shrink: 0;
+        margin-left: 200px;
+      }
+      
+      .footer-logo-text {
+        margin: auto 0;
+        font-size: inherit;
+        font-weight: inherit;
+      }
+      
+      .footer-info {
+        margin-top: 4px;
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: auto;
+        margin-left: 200px;
+      }
+      
+      @media (max-width: 991px) {
+        .footer-info {
+          max-width: 100%;
+        }
+      }
+      
+      .footer-columns {
+        display: flex;
+      }
+      
+      @media (max-width: 991px) {
+        .footer-columns {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0px;
+        }
+      }
+      
+      .footer-column {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        line-height: normal;
+      }
+      
+      .footer-column:first-child {
+        width: 20%;
+        margin-left: 0px;
+      }
+      
+      .footer-column:last-child {
+        width: 80%;
+        margin-left: 20px;
+      }
+      
+      @media (max-width: 991px) {
+        .footer-column {
+          width: 100% !important;
+          margin-left: 0 !important;
+        }
+      }
+      
+      .footer-links-secondary {
+        color: rgba(255, 255, 255, 1);
+        font-size: 20px;
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-weight: 400;
+        margin: 0;
+      }
+      
+      @media (max-width: 991px) {
+        .footer-links-secondary {
+          margin-top: 40px;
+        }
+      }
+      
+      .footer-contact {
+        color: rgba(255, 255, 255, 1);
+        font-size: 24px;
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-weight: 400;
+        margin: auto 0;
+        align-self: stretch;
+      }
+      
+      @media (max-width: 991px) {
+        .footer-contact {
+          margin-top: 40px;
+        }
+      }
+      
+      /* Copyright Footer */
+      .copyright-footer {
+        background-color: rgba(0, 0, 0, 0.98);
+        display: flex;
+        width: 100%;
+        padding: 8px 29px 8px 14px;
+        align-items: stretch;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      
+      @media (max-width: 991px) {
+        .copyright-footer {
+          max-width: 100%;
+          padding-right: 20px;
+        }
+      }
+      
+      .copyright-text {
+        color: rgba(255, 255, 255, 1);
+        font-size: 24px;
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-weight: 700;
+        margin: auto 0;
+      }
+      
+      .small-logo {
+        display: flex;
+        align-items: stretch;
+        gap: 9px;
+        font-family:
+          Inter,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        font-size: 32px;
+        color: rgba(255, 255, 255, 1);
+        font-weight: 700;
+        white-space: nowrap;
+      }
+      
+      @media (max-width: 991px) {
+        .small-logo {
+          white-space: initial;
+        }
+      }
+      
+      .small-logo-image {
+        aspect-ratio: 1.04;
+        object-fit: contain;
+        object-position: center;
+        width: 52px;
+        flex-shrink: 0;
+      }
+      
+      .small-logo-text {
+        margin: auto 0;
+        flex-basis: auto;
+      }
+      
+      .social-icons {
+        display: flex;
+        align-items: stretch;
+        gap: 11px;
+      }
+      
+      .social-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 50px;
+        flex-shrink: 0;
+      }
+      </style>
+      <html>
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>HISTMAP - Sign Up</title>
+          <style>
+            /* Your existing styles here */
+            /* ... */
+          </style>
+        </head>
+        <body>
+          <div class="sign-up">
+            <header class="main-header">
+              <div class="logo-container">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/fe4235f601c9856771a7a587474903558f7dd4f45604c34adfc8eec1f04c32e9?placeholderIfAbsent=true&apiKey=3bb94221996c47f6be7b5ca60455aeed"
+                  class="logo-image"
+                  alt="HISTMAP Logo"
+                />
+                <h1 class="logo-text">HISTMAP</h1>
+              </div>
+              <nav class="main-nav">
+                <a href="#" class="nav-link">Map</a>
+                <a href="#" class="nav-link">Services</a>
+                <a href="#" class="nav-link">Location</a>
+                <a href="#" class="nav-link">About Us</a>
+                <a href="#" class="nav-link signup-button">Sign-Up</a>
+              </nav>
+            </header>
+      
+            <main class="signup-section">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/4ec4db8237286e8b344f7d39f89e0ba0effe0553646eb67e7b15f06ceeeaabfe?placeholderIfAbsent=true&apiKey=3bb94221996c47f6be7b5ca60455aeed"
+                class="background-image"
+                alt="Background"
+              />
+              <div class="signup-container">
+                <form class="signup-form">
+                  <h2 class="signup-title">SIGN-UP</h2><br><br>
+                  <div class="form-group">
+                    <label for="email" class="form-label">E-Mail</label>
+                    <input type="email" id="email" class="form-input" />
+                  </div><br><br>
+                  <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" class="form-input" />
+                  </div><br><br>
+      
+                 
+                </form>
+                <a href="map.html"><button type="submit" class="submit-button">SIGN-UP</button></a>
+              </div>
+            </main>
+      
+            <section class="main-footer">
+              <nav class="footer-nav">
+                <p class="footer-links">
+                  Home
+                  <br />
+                  <br />
+                  Projects
+                  <br />
+                  <br />
+                  Blog
+                  <br />
+                  <br />
+                  About Us
+                  <br />
+                  <br />
+                  Services
+                </p>
+              </nav>
+      
+              <div class="footer-logo">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/fe4235f601c9856771a7a587474903558f7dd4f45604c34adfc8eec1f04c32e9?placeholderIfAbsent=true&apiKey=3bb94221996c47f6be7b5ca60455aeed"
+                  class="footer-logo-image"
+                  alt="HISTMAP Logo"
+                />
+                <h2 class="footer-logo-text">HISTMAP</h2>
+              </div>
+      
+              <div class="footer-info">
+                <div class="footer-columns">
+                  <div class="footer-column">
+                    <p class="footer-links-secondary">
+                      Location
+                      <br />
+                      <br />
+                      Map
+                      <br />
+                      <br />
+                      Services
+                      <br />
+                      <br />
+                      Histmap
+                      <br />
+                      <br />
+                      Places
+                    </p>
+                  </div>
+                  <div class="footer-column">
+                    <p class="footer-contact">
+                      Email: contact@histmap.com
+                      <br />
+                      <br />
+                      Phone: +91 123456-7890
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+      
+            <footer class="copyright-footer">
+              <p class="copyright-text">©Histmap|All Rights Reserved</p>
+      
+              <div class="small-logo">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/a82006e1f5ade9c3dfed4faf5a2825c4704446ec905a629267567a958d453411?placeholderIfAbsent=true&apiKey=3bb94221996c47f6be7b5ca60455aeed"
+                  class="small-logo-image"
+                  alt="HISTMAP Small Logo"
+                />
+                <span class="small-logo-text">HISTMAP</span>
+              </div>
+      
+              <div class="social-icons">
+                <a href="#"
+                  ><img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/bc3db2b87ce02ed681aa143a936fce42b66003d83579ac716c27dfea263ffe1b?placeholderIfAbsent=true&apiKey=3bb94221996c47f6be7b5ca60455aeed"
+                    class="social-icon"
+                    alt="Social Media"
+                /></a>
+                <a href="#"
+                  ><img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/df8ac0016184220cf828127ef8d6fe39658a63f19e99dd6df6280c4fc1dd78e8?placeholderIfAbsent=true&apiKey=3bb94221996c47f6be7b5ca60455aeed"
+                    class="social-icon"
+                    alt="Social Media"
+                /></a>
+                <a href="#"
+                  ><img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/58b9a59a91dccbde8011a144d39c242499c5c4e042f81cc55945a641f017c010?placeholderIfAbsent=true&apiKey=3bb94221996c47f6be7b5ca60455aeed"
+                    class="social-icon"
+                    alt="Social Media"
+                /></a>
+                <a href="#"
+                  ><img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/d9d5fc2df03e62cbca335365f6362013a9d2f63ea3faa1f65ef1a724d83215a5?placeholderIfAbsent=true&apiKey=3bb94221996c47f6be7b5ca60455aeed"
+                    class="social-icon"
+                    alt="Social Media"
+                /></a>
+              </div>
+            </footer>
+          </div>
+      
+          <script>
+            (() => {
+              const state = {};
+      
+              let context = null;
+              let nodesToDestroy = [];
+              let pendingUpdate = false;
+      
+              function destroyAnyNodes() {
+                nodesToDestroy.forEach((el) => el.remove());
+                nodesToDestroy = [];
+              }
+      
+              function update() {
+                if (pendingUpdate === true) {
+                  return;
+                }
+                pendingUpdate = true;
+      
+                document.querySelectorAll(".form-content").forEach((el) => {
+                  el.setAttribute("space", 196);
+                });
+      
+                document.querySelectorAll(".footer-info").forEach((el) => {
+                  el.setAttribute("space", 102);
+                });
+      
+                destroyAnyNodes();
+      
+                pendingUpdate = false;
+              }
+      
+              update();
+            })();
+          </script>
+        </body>
+      </html>

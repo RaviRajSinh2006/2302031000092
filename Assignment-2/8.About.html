@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - HISTMAP</title>
+    <style>
+      /* Base styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .page {
+        width: 100%;
+        min-height: 100vh;
+        background-color: #fff;
+      }
+
+      /* Navigation styles */
+      .nav {
+        width: 100%;
+        height: 108px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 35px;
+        background-color: rgba(0, 0, 0, 0.98);
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .logo-img {
+        width: 90px;
+        height: 90px;
+      }
+
+      .logo-text {
+        color: #fff;
+        font-size: 48px;
+        font-weight: 700;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+      }
+
+      .nav-item {
+        color: #fff;
+        font-size: 36px;
+        font-weight: 700;
+      }
+
+      .signup-btn {
+        color: #000;
+        font-size: 36px;
+        font-weight: 700;
+        padding: 6px 15px;
+        border-radius: 90px;
+        background-color: #fff;
+      }
+
+      /* Hero section styles */
+      .hero {
+        position: relative;
+      }
+
+      .hero-img {
+        width: 100%;
+        height: 663px;
+        object-fit: cover;
+      }
+
+      .hero-content {
+        position: absolute;
+        top: 44px;
+        left: 52px;
+        color: #fff;
+      }
+
+      .hero-title {
+        font-size: 96px;
+        font-weight: 700;
+        margin-bottom: 137px;
+      }
+
+      .hero-text {
+        font-size: 36px;
+        font-weight: 700;
+        max-width: 1295px;
+        line-height: 1.4;
+      }
+
+      .hero-text1 {
+        color: #000;
+        font-size: 36px;
+        font-weight: 700;
+        padding: 6px 15px;
+        border-radius: 90px;
+        background-color: #fff;
+      }
+
+      /* Footer styles */
+      .footer {
+        background-color: #262525;
+      }
+
+      .footer-upper {
+        padding: 23px 74px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .footer-col {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .footer-link {
+        color: #fff;
+        font-size: 20px;
+      }
+
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .footer-logo-img {
+        width: 90px;
+        height: 90px;
+      }
+
+      .footer-logo-text {
+        color: #fff;
+        font-size: 48px;
+        font-weight: 700;
+      }
+
+      .footer-contact {
+        color: #fff;
+        font-size: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .contact-item {
+        margin: 0;
+      }
+
+      .footer-lower {
+        padding: 9px 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.98);
+      }
+
+      .copyright {
+        color: #fff;
+        font-size: 24px;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      .footer-logo-small {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+
+      .footer-logo-img-small {
+        width: 52px;
+        height: 50px;
+      }
+
+      .footer-logo-text-small {
+        color: #fff;
+        font-size: 32px;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 11px;
+      }
+
+      .social-icon {
+        width: 50px;
+        height: 50px;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 991px) {
+        .nav {
+          padding: 0 20px;
+          height: 90px;
+        }
+
+        .logo-img {
+          width: 70px;
+          height: 70px;
+        }
+
+        .logo-text {
+          font-size: 36px;
+        }
+
+        .nav-item {
+          font-size: 28px;
+        }
+
+        .signup-btn {
+          font-size: 28px;
+        }
+
+        .hero-title {
+          font-size: 72px;
+          margin-bottom: 80px;
+        }
+
+        .hero-text {
+          font-size: 28px;
+        }
+
+        .footer-upper {
+          padding: 20px 40px;
+        }
+
+        .footer-logo-img {
+          width: 70px;
+          height: 70px;
+        }
+
+        .footer-logo-text {
+          font-size: 36px;
+        }
+
+        .footer-link {
+          font-size: 18px;
+        }
+
+        .footer-contact {
+          font-size: 20px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .nav {
+          height: 70px;
+          padding: 0 15px;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .logo-img {
+          width: 50px;
+          height: 50px;
+        }
+
+        .logo-text {
+          font-size: 28px;
+        }
+
+        .signup-btn {
+          font-size: 20px;
+          padding: 4px 12px;
+        }
+
+        .hero-title {
+          font-size: 48px;
+          margin-bottom: 40px;
+        }
+
+        .hero-text {
+          font-size: 20px;
+        }
+
+        .footer-upper {
+          flex-direction: column;
+          gap: 30px;
+          padding: 20px;
+        }
+
+        .footer-links {
+          flex-direction: column;
+          gap: 30px;
+          text-align: center;
+        }
+
+        .footer-contact {
+          text-align: center;
+        }
+
+        .footer-lower {
+          flex-direction: column;
+          gap: 20px;
+          text-align: center;
+        }
+
+        .social-icons {
+          justify-content: center;
+        }
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page">
+      <header class="nav">
+        <div class="logo">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/0c3e45c20a7cb4635d69ab30bd057e67356cfb0a"
+            alt="World Map"
+            class="logo-img"
+          />
+          <h1 class="logo-text">HISTMAP</h1>
+        </div>
+        <nav class="nav-links">
+          <a href="map.html" class="nav-item">Map</a>
+          <a href="servi.html" class="nav-item">Services</a>
+          <a href="loction.html" class="nav-item">Location</a>
+          <a href="about.html" class="nav-item">About Us</a>
+          <a href="sing.html" class="signup-btn">Sign-Up</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/e722624607b2b9f566fcc687adf09534be99331c"
+            alt="Heritage Architecture"
+            class="hero-img"
+          />
+          <div class="hero-content">
+            <h2 class="hero-title">About Us</h2>
+            <p class="hero-text">
+              Welcome to our platform, where history comes alive! We are
+              dedicated to showcasing Gujarat's rich cultural heritage and
+              historical landmarks. Our mission is to connect you with the
+              stories, architecture, and traditions that have shaped this
+              vibrant state. Join us on a journey to explore and celebrate
+              Gujarat's timeless treasures.
+            </p>
+            <a href="Start.html"><button class="hero-text1">Start</button></a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-upper">
+          <div class="footer-links">
+            <div class="footer-col">
+              <a href="#" class="footer-link">Home</a>
+              <a href="#" class="footer-link">Projects</a>
+              <a href="#" class="footer-link">Blog</a>
+              <a href="#" class="footer-link">About Us</a>
+              <a href="#" class="footer-link">Services</a>
+            </div>
+            <div class="footer-logo">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/0c3e45c20a7cb4635d69ab30bd057e67356cfb0a"
+                alt="World Map"
+                class="footer-logo-img"
+              />
+              <h3 class="footer-logo-text">HISTMAP</h3>
+            </div>
+            <div class="footer-col">
+              <a href="#" class="footer-link">Location</a>
+              <a href="#" class="footer-link">Map</a>
+              <a href="#" class="footer-link">Services</a>
+              <a href="#" class="footer-link">Histmap</a>
+              <a href="#" class="footer-link">Places</a>
+              <a href="Start.html" class="footer-link">Start</a>
+            </div>
+            <address class="footer-contact">
+              <p class="contact-item">Email: contact@histmap.com</p>
+              <p class="contact-item">Phone: +91 123456-7890</p>
+            </address>
+          </div>
+        </div>
+        <div class="footer-lower">
+          <p class="copyright">©Histmap|All Rights Reserved</p>
+          <div class="footer-logo-small">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/420abec3484647c62ca80057c2f696f4f4da0a5e"
+              alt="World Map"
+              class="footer-logo-img-small"
+            />
+            <h3 class="footer-logo-text-small">HISTMAP</h3>
+          </div>
+          <div class="social-icons">
+            <a href="#" aria-label="Instagram">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/605f74214bdb9e2f585ae7be8ee9631a2f9e6dfa"
+                alt="Instagram"
+                class="social-icon"
+              />
+            </a>
+            <a href="#" aria-label="Facebook">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/f281fbcc792ddd3c872b221ff2db339eb7b26428"
+                alt="Facebook"
+                class="social-icon"
+              />
+            </a>
+            <a href="#" aria-label="YouTube">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/084dc7e795fbdc07a5d3354a2e77b13391c9cb08"
+                alt="YouTube"
+                class="social-icon"
+              />
+            </a>
+            <a href="#" aria-label="X">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/5df0d5ba7bf258e8c8ca4f8b46bd8e35a0465a5c"
+                alt="X"
+                class="social-icon"
+              />
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

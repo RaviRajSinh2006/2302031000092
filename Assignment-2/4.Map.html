@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HISTMAP - Historical Mapping Service</title>
+    <style>
+        /* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Inter", sans-serif;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Main container */
+  .main-container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fff;
+  }
+  
+  /* Navigation bar */
+  .nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 35px;
+    height: 108px;
+    background-color: rgba(0, 0, 0, 0.98);
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .logo-img {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .logo-text {
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  
+  .nav-item {
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  
+  .signup-btn {
+    color: #000;
+    font-family: "Inter", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    padding: 6px 15px;
+    border-radius: 90px;
+    cursor: pointer;
+    background-color: #fff;
+    border: none;
+  }
+  
+  /* Content section */
+  .content-section {
+    width: 100%;
+    height: 672px;
+    background: url("https://cdn.builder.io/api/v1/image/assets/TEMP/2cb2959d7b1d87602f17d5c01e02d069f590d419")
+      no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .image-container {
+    display: flex;
+    padding: 76px 34px;
+    gap: 16px;
+  }
+  
+  .main-image {
+    width: 700px;
+    height: 484px;
+    object-fit: cover;
+  }
+  
+  .info-text {
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+    padding: 58px 0;
+    max-width: 961px;
+  }
+  
+  .info-item {
+    margin-bottom: 24px;
+  }
+  
+  /* Footer */
+  .footer {
+    width: 100%;
+  }
+  
+  .footer-upper {
+    padding: 23px 74px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #262525;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .link-column,
+  .link-columnright {
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .link-item {
+    cursor: pointer;
+  }
+  
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .footer-logo-img {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .footer-logo-text {
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+  }
+  
+  .contact-info {
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+  }
+  
+  .contact-item {
+    margin-bottom: 16px;
+  }
+  
+  .footer-lower {
+    padding: 9px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 66px;
+    background-color: rgba(0, 0, 0, 0.98);
+  }
+  
+  .copyright {
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+  }
+  
+  .footer-logo-small {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  
+  .footer-logo-img-small {
+    width: 52px;
+    height: 50px;
+  }
+  
+  .footer-logo-text-small {
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 11px;
+  }
+  
+  .social-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 991px) {
+    .nav-bar {
+      padding: 0 20px;
+    }
+  
+    .nav-links {
+      gap: 20px;
+    }
+  
+    .nav-item {
+      font-size: 28px;
+    }
+  
+    .footer-upper {
+      padding: 20px 40px;
+    }
+  
+    .footer-logo-text {
+      font-size: 36px;
+    }
+  
+    .info-text {
+      font-size: 20px;
+      padding: 30px 0;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .nav-bar {
+      padding: 0 15px;
+      height: 80px;
+    }
+  
+    .logo-img {
+      width: 60px;
+      height: 60px;
+    }
+  
+    .logo-text {
+      font-size: 32px;
+    }
+  
+    .nav-links {
+      display: none;
+    }
+  
+    .signup-btn {
+      font-size: 24px;
+      padding: 4px 12px;
+    }
+  
+    .image-container {
+      flex-direction: column;
+      padding: 20px;
+    }
+  
+    .main-image {
+      width: 100%;
+      height: auto;
+    }
+  
+    .info-text {
+      font-size: 16px;
+      padding: 20px 0;
+    }
+  
+    .footer-upper {
+      flex-direction: column;
+      gap: 30px;
+      padding: 20px;
+    }
+  
+    .footer-links {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .footer-logo {
+      justify-content: center;
+    }
+  
+    .contact-info {
+      text-align: center;
+    }
+  
+    .footer-lower {
+      flex-direction: column;
+      height: auto;
+      padding: 15px;
+      gap: 15px;
+    }
+  
+    .copyright {
+      font-size: 18px;
+    }
+  
+    .social-icons {
+      justify-content: center;
+    }
+  }
+  
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="main-container">
+      <header class="nav-bar">
+        <div class="logo">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/0c3e45c20a7cb4635d69ab30bd057e67356cfb0a"
+            alt="World Map"
+            class="logo-img"
+          />
+          <h1 class="logo-text">HISTMAP</h1>
+        </div>
+        <nav class="nav-links">
+          <a href="map.html" class="nav-item">Map</a>
+          <a href="servi.html" class="nav-item">Services</a>
+          <a href="loction.html" class="nav-item">Location</a>
+          <a href="about.html" class="nav-item">About Us</a>
+          <a href="sing.html"><button class="signup-btn">Sign-Up</button></a>
+        </nav>
+      </header>
+
+      <section class="content-section">
+        <div class="image-container">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/f212952e42cf87e468ca3303dc3ce7087c3f74e9"
+            alt="Intricate Jali Window"
+            class="main-image"
+          />
+          <div class="info-text">
+            <p class="info-item">Location: Ahmedabad, Gujarat, India.</p>
+            <p class="info-item">
+              Built-in: 1573 by Sidi Saiyyed, a nobleman in the Gujarat
+              Sultanate.
+            </p>
+            <p class="info-item">
+              Famous For: Intricately carved stone lattice windows (Jali) with a
+              tree-like design.
+            </p>
+            <p class="info-item">
+              Architecture: Indo-Islamic style with fine craftsmanship.
+            </p>
+            <p class="info-item">
+              Symbol: The Jali design is an iconic representation of Ahmedabad's
+              heritage.
+            </p>
+            <p class="info-item">
+              Tourist Attraction: A must-visit historical site in Ahmedabad.
+            </p>
+            <p class="info-item">4o</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer-upper">
+          <div class="footer-links">
+            <div class="link-column">
+              <a href="#" class="link-item">Home</a>
+              <a href="#" class="link-item">Projects</a>
+              <a href="#" class="link-item">Blog</a>
+              <a href="#" class="link-item">About Us</a>
+              <a href="#" class="link-item">Services</a>
+            </div>
+
+            <div class="footer-logo">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/0c3e45c20a7cb4635d69ab30bd057e67356cfb0a"
+                alt="World Map"
+                class="footer-logo-img"
+              />
+              <h2 class="footer-logo-text">HISTMAP</h2>
+            </div>
+
+            <div class="link-columnright">
+              <a href="loction.html" class="link-item">Location</a>
+              <a href="map.html" class="link-item">Map</a>
+              <a href="servi.html" class="link-item">Services</a>
+              <a href="" class="link-item">Histmap</a>
+              <a href="#" class="link-item">Places</a>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-item">Email: contact@histmap.com</p>
+              <p class="contact-item">Phone: +91 123456-7890</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-lower">
+          <p class="copyright">©Histmap|All Rights Reserved</p>
+
+          <div class="footer-logo-small">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/420abec3484647c62ca80057c2f696f4f4da0a5e"
+              alt="World Map"
+              class="footer-logo-img-small"
+            />
+            <h3 class="footer-logo-text-small">HISTMAP</h3>
+          </div>
+
+          <div class="social-icons">
+            <a href="#" aria-label="Instagram">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/605f74214bdb9e2f585ae7be8ee9631a2f9e6dfa"
+                alt="Instagram"
+                class="social-icon"
+              />
+            </a>
+            <a href="#" aria-label="Facebook">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/f281fbcc792ddd3c872b221ff2db339eb7b26428"
+                alt="Facebook"
+                class="social-icon"
+              />
+            </a>
+            <a href="#" aria-label="YouTube">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/084dc7e795fbdc07a5d3354a2e77b13391c9cb08"
+                alt="YouTube"
+                class="social-icon"
+              />
+            </a>
+            <a href="#" aria-label="X">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/5df0d5ba7bf258e8c8ca4f8b46bd8e35a0465a5c"
+                alt="X"
+                class="social-icon"
+              />
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
